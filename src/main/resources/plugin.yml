@@ -1,0 +1,4 @@
+name: BukkitRandomMOTD
+version: 1.0
+main: me.jonnyfant.bukkitrandommotd.BukkitRandomMOTD
+api-version: 1.19
