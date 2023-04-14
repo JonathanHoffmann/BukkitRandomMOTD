@@ -2,3 +2,19 @@ name: BukkitRandomMOTD
 version: 1.0
 main: me.jonnyfant.bukkitrandommotd.BukkitRandomMOTD
 api-version: 1.19
+commands:
+  motdlist:
+    usage: /<command> <id> [name]
+    permission: randommotd.admin
+    permission-message: You do not have permission!
+  motdadd:
+    usage: /<command> <id | name>
+    permission: randommotd.admin
+    permission-message: You do not have permission!
+  motddelete:
+    usage: /<command>
+    permission: randommotd.admin
+    permission-message: You do not have permission!
+permissions:
+  randommotd.admin:
+    default: op
