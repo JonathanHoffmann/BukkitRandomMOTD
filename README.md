@@ -1,5 +1,7 @@
 # BukkitRandomMOTD
- Randomly sends a new MOTD everytime.
+Randomly sends a new MOTD everytime. The MOTD (Message of the day) is the text that appears in the server description in the Multiplayer screen. Examples are provided when generating the config. Just change it and keep the style of seperation between items.
+
+For text styling, consult a list like this one: https://htmlcolorcodes.com/minecraft-color-codes/
 
 
 | Color                       | Code | Hex     |
@@ -20,3 +22,12 @@
 | Light Purple (light_purple) | §d   | #FF55FF |
 | Yellow (yellow)             | §e   | #FFFF55 |
 | White (white)               | §f   | #FFFFFF |
+
+| Text style    | Code |
+|---------------|------|
+| Obfuscated    | §k   |
+| Bold          | §l   |
+| Strikethrough | §m   |
+| Underline     | §n   |
+| Italic        | §o   |
+| Reset         | §r   |
