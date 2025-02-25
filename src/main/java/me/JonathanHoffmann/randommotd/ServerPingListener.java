@@ -1,4 +1,4 @@
-package me.jonnyfant.bukkitrandommotd;
+package me.JonathanHoffmann.randommotd;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Random;
 
 public class ServerPingListener implements Listener {
-    private BukkitRandomMOTD plugin;
+    private RandomMOTD plugin;
 
-    public ServerPingListener(BukkitRandomMOTD plugin) {
+    public ServerPingListener(RandomMOTD plugin) {
         this.plugin = plugin;
     }
 
