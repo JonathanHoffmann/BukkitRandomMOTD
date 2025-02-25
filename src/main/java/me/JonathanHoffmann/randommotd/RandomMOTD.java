@@ -1,6 +1,7 @@
-package me.jonnyfant.bukkitrandommotd;
+package me.JonathanHoffmann.randommotd;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public final class BukkitRandomMOTD extends JavaPlugin {
+public final class RandomMOTD extends JavaPlugin {
     public final String FILE_NAME = "MOTD_List.yml";
     private final String CFG_KEY_ENABLE = "enable";
     private final boolean CFG_DEFAULT_ENABLE = true;
@@ -20,8 +21,7 @@ public final class BukkitRandomMOTD extends JavaPlugin {
             Arrays.asList("§9MINECRAFT\n§6pᴉuuǝɹqouǝ",
                     "A Minecraft Server",
                     "§9Hypixel\n§6Han shot first!",
-                    "2b2t\n§1C§2o§3l§4o§5r§6m§7a§8t§9i§ac")
-    );
+                    "2b2t\n§1C§2o§3l§4o§5r§6m§7a§8t§9i§ac"));
 
     @Override
     public void onEnable() {
@@ -30,7 +30,7 @@ public final class BukkitRandomMOTD extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new ServerPingListener(this), this);
     }
 
-        @Override
+    @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String commandName = command.getName();
         switch (commandName.toLowerCase()) {
@@ -45,45 +45,39 @@ public final class BukkitRandomMOTD extends JavaPlugin {
         }
     }
 
-    public boolean motdList(CommandSender sender)
-    {
-        for(String s : getConfigList())
-        {
+    public boolean motdList(CommandSender sender) {
+        for (String s : getConfigList()) {
             sender.sendMessage(s);
         }
         return true;
     }
 
-    public boolean motdAdd(CommandSender sender, String[] args)
-    {
+    public boolean motdAdd(CommandSender sender, String[] args) {
         List<String> motds = getConfigList();
-        String newMOTD="";
-        for(String s : args)
+        String newMOTD = "";
+        for (String s : args)
             newMOTD = s + " ";
         motds.add(newMOTD);
         return writeConfigList(motds);
     }
 
-    public boolean motdDelete(CommandSender sender, String[] args)
-    {
+    public boolean motdDelete(CommandSender sender, String[] args) {
         List<String> motds = getConfigList();
-        String newMOTD="";
-        for(String s : args)
+        String newMOTD = "";
+        for (String s : args)
             newMOTD = s + " ";
         motds.remove(newMOTD);
         return writeConfigList(motds);
     }
 
-    public List<String> getConfigList()
-    {
+    public List<String> getConfigList() {
         File f = new File(getDataFolder(), FILE_NAME);
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(f);
         List<?> motds = yaml.getList(CFG_KEY_LIST);
         return (List<String>) motds;
     }
 
-    public boolean writeConfigList(List<String> l)
-    {
+    public boolean writeConfigList(List<String> l) {
         File f = new File(getDataFolder(), FILE_NAME);
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(f);
         yaml.addDefault(CFG_KEY_LIST, l);

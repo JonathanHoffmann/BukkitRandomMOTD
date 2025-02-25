@@ -1,6 +1,6 @@
-name: BukkitRandomMOTD
-version: 1.0
-main: me.jonnyfant.bukkitrandommotd.BukkitRandomMOTD
+name: RandomMOTD
+version: ${plugin.version}
+main: me.JonathanHoffmann.randommotd.RandomMOTD
 api-version: 1.19
 commands:
   motdlist:
